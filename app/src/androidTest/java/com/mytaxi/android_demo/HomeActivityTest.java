@@ -32,16 +32,14 @@ public class HomeActivityTest {
     @Test
     public void searchingDriverTest() throws InterruptedException {
 
-        try{
+        Thread.sleep(3000);
         Espresso.onView(withId(R.id.textSearch)).check(matches(isDisplayed()));
         Espresso.onView(withId(R.id.textSearch)).perform(typeText("sa"));
         Thread.sleep(10000);
         Espresso.onView(withText(driverName)).inRoot(RootMatchers.isPlatformPopup()).perform(click());
         // ViewInteraction callBtn=Espresso.onView(Matchers.allOf(withId(R.id.fab),))
         Espresso.onView(withId(R.id.fab)).perform(click());
-        }catch(NoMatchingViewException e){
-            
-        }
+        
     }
 
     @After
