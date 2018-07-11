@@ -33,7 +33,7 @@ public class HomeActivityTest {
     @Test
     public void searchingDriverTest() throws InterruptedException {
 
-        Espresso.onView(withText(R.string.text_hint_driver)).perform(typeText("sa"),closeSoftKeyboard());
+        Espresso.onView(withId(R.id.searchContainer)).perform(typeText("sa"),closeSoftKeyboard());
         Thread.sleep(10000);
         Espresso.onView(withText(driverName)).inRoot(RootMatchers.isPlatformPopup()).perform(click());
         // ViewInteraction callBtn=Espresso.onView(Matchers.allOf(withId(R.id.fab),))
