@@ -17,6 +17,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import android.support.test.espresso.NoMatchingViewException;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 
 public class HomeActivityTest {
     @Rule
