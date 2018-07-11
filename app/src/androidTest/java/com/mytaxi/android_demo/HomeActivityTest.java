@@ -18,6 +18,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import android.support.test.espresso.NoMatchingViewException;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 
 public class HomeActivityTest {
     @Rule
@@ -32,8 +33,7 @@ public class HomeActivityTest {
     @Test
     public void searchingDriverTest() throws InterruptedException {
 
-        Thread.sleep(3000);
-        Espresso.onView(withText(R.string.text_hint_driver)).perform(typeText("sa"));
+        Espresso.onView(withText(R.string.text_hint_driver)).perform(typeText("sa"),closeSoftKeyboard());
         Thread.sleep(10000);
         Espresso.onView(withText(driverName)).inRoot(RootMatchers.isPlatformPopup()).perform(click());
         // ViewInteraction callBtn=Espresso.onView(Matchers.allOf(withId(R.id.fab),))
