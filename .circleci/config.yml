@@ -15,6 +15,8 @@ jobs:
       # Customize the JVM maximum heap limit
       ANDROID_HOME: /opt/android/sdk
       JVM_OPTS: -Xmx3200m
+      java:
+        version: oraclejdk8
       
     steps:
       - checkout
