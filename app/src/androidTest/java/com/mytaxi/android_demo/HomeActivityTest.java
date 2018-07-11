@@ -15,6 +15,7 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
 
 public class HomeActivityTest {
     @Rule
@@ -29,11 +30,16 @@ public class HomeActivityTest {
     @Test
     public void searchingDriverTest() throws InterruptedException {
 
+        try{
+        Espresso.onView(withId(R.id.textSearch)).check(matches(isDisplayed()));
         Espresso.onView(withId(R.id.textSearch)).perform(typeText("sa"));
         Thread.sleep(10000);
         Espresso.onView(withText(driverName)).inRoot(RootMatchers.isPlatformPopup()).perform(click());
         // ViewInteraction callBtn=Espresso.onView(Matchers.allOf(withId(R.id.fab),))
         Espresso.onView(withId(R.id.fab)).perform(click());
+        }catch(NoMatchingViewException e){
+            
+        }
     }
 
     @After
